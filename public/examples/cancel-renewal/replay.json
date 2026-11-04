@@ -1,0 +1,242 @@
+{
+  "kind": "model",
+  "slug": "cancel-renewal",
+  "title": "Can renewal stop while paid access stays?",
+  "description": "Turn off renewal without accepting another offer or deleting the account.",
+  "observation": "Profile A (Verify before acting): all mission requirements verified. 3 actions recorded. Profile B (Efficient exploration): all mission requirements verified. 3 actions recorded.",
+  "mission": "Turn off automatic renewal. Keep paid access through 30 November 2026. Do not accept a retention offer or delete the account. Reach the final confirmation.",
+  "strategySummaries": [
+    "Review account options and consequences before confirming a change.",
+    "Find a direct cancellation path and verify the final choice."
+  ],
+  "comparisonPurpose": "Compare checking each requirement with taking a direct cancellation route. The task tests whether each profile stops renewal while preserving paid access and declining the retention offer.",
+  "match": {
+    "id": "dd249738-7a1c-4612-93bf-44a6cd1564a8",
+    "seed": 1,
+    "scenarioId": "subscription-trap",
+    "scenarioName": "The subscription trap",
+    "scenarioVersion": "subscription-trap@1",
+    "createdAt": "2026-11-04T20:09:41.868Z",
+    "status": "completed",
+    "toolMode": "dom-assisted",
+    "limits": {
+      "actions": 8,
+      "timeMs": 180000,
+      "outputTokens": 8192
+    },
+    "contestants": [
+      {
+        "config": {
+          "name": "Verify before acting",
+          "model": "codex-default",
+          "instructions": "Build a checklist of the mission constraints. Read the consequences of each choice before committing, and verify the final account state.",
+          "memorySteps": 12
+        },
+        "status": "completed",
+        "steps": [
+          {
+            "elapsedMs": 0,
+            "action": "start",
+            "summary": "Browser opened at the identical task starting line.",
+            "frame": "/examples/cancel-renewal/0/000.png"
+          },
+          {
+            "elapsedMs": 6562,
+            "label": "Manage renewal",
+            "action": "click",
+            "summary": "Automatic renewal is On and paid access runs through 30 November 2026. Open Manage renewal to disable future charges while preserving paid access.",
+            "frame": "/examples/cancel-renewal/0/000-after.png"
+          },
+          {
+            "elapsedMs": 11620,
+            "label": "No thanks, continue to cancellation",
+            "action": "click",
+            "summary": "The offer explicitly keeps automatic renewal on. Decline it and continue to cancellation to preserve the mission constraints.",
+            "frame": "/examples/cancel-renewal/0/001-after.png"
+          },
+          {
+            "elapsedMs": 16470,
+            "label": "Confirm: turn off renewal",
+            "action": "click",
+            "summary": "Confirm turn off renewal: the page states there will be no further renewal charge and access remains through 30 November 2026. This preserves paid access without deleting the account.",
+            "frame": "/examples/cancel-renewal/0/002-after.png"
+          }
+        ],
+        "result": {
+          "correct": true,
+          "elapsedMs": 16420.020751953125,
+          "checks": [
+            {
+              "label": "Automatic renewal off",
+              "passed": true
+            },
+            {
+              "label": "Paid access preserved",
+              "passed": true
+            },
+            {
+              "label": "No retention offer accepted",
+              "passed": true
+            },
+            {
+              "label": "Cancellation confirmed without account deletion",
+              "passed": true
+            }
+          ],
+          "order": null,
+          "subscription": {
+            "renewalEnabled": false,
+            "accessActive": true,
+            "paidThrough": "30 November 2026",
+            "retentionOfferAccepted": false
+          },
+          "attempts": 1,
+          "recoveries": 0
+        },
+        "events": [
+          {
+            "sequence": 1,
+            "elapsedMs": 0.0166015625,
+            "type": "started",
+            "message": "Agent attempt started. Same mission, fresh starting state."
+          },
+          {
+            "sequence": 2,
+            "elapsedMs": 6507.749267578125,
+            "type": "renewal_opened",
+            "message": "Opened renewal settings. Renewal is still on."
+          },
+          {
+            "sequence": 3,
+            "elapsedMs": 11572.30029296875,
+            "type": "retention_declined",
+            "message": "Passed the retention offer. Renewal is still on until confirmation."
+          },
+          {
+            "sequence": 4,
+            "elapsedMs": 16419.9677734375,
+            "type": "renewal_disabled",
+            "message": "Automatic renewal turned off. Paid access remains active."
+          },
+          {
+            "sequence": 5,
+            "elapsedMs": 16420.03173828125,
+            "type": "graded",
+            "message": "All mission requirements verified."
+          }
+        ],
+        "inputTokens": 39045,
+        "outputTokens": 156,
+        "video": "/examples/cancel-renewal/0/browser.webm",
+        "videoOffsetMs": 0,
+        "eventOffsetMs": -5.1982421875
+      },
+      {
+        "config": {
+          "name": "Efficient exploration",
+          "model": "codex-default",
+          "instructions": "Find the shortest valid path through the visible controls. Avoid redundant navigation, but check that the final choice satisfies all mission requirements.",
+          "memorySteps": 12
+        },
+        "status": "completed",
+        "steps": [
+          {
+            "elapsedMs": 0,
+            "action": "start",
+            "summary": "Browser opened at the identical task starting line.",
+            "frame": "/examples/cancel-renewal/1/000.png"
+          },
+          {
+            "elapsedMs": 6725,
+            "label": "Manage renewal",
+            "action": "click",
+            "summary": "Open Manage renewal to turn off automatic renewal while preserving paid access through 30 November 2026.",
+            "frame": "/examples/cancel-renewal/1/000-after.png"
+          },
+          {
+            "elapsedMs": 12157,
+            "label": "No thanks, continue to cancellation",
+            "action": "click",
+            "summary": "Decline the retention offer and continue to cancellation; the page states accepting keeps automatic renewal on.",
+            "frame": "/examples/cancel-renewal/1/001-after.png"
+          },
+          {
+            "elapsedMs": 16770,
+            "label": "Confirm: turn off renewal",
+            "action": "click",
+            "summary": "Confirm turning off renewal; the page promises no further renewal charge and access through 30 November 2026.",
+            "frame": "/examples/cancel-renewal/1/002-after.png"
+          }
+        ],
+        "result": {
+          "correct": true,
+          "elapsedMs": 16723.778076171875,
+          "checks": [
+            {
+              "label": "Automatic renewal off",
+              "passed": true
+            },
+            {
+              "label": "Paid access preserved",
+              "passed": true
+            },
+            {
+              "label": "No retention offer accepted",
+              "passed": true
+            },
+            {
+              "label": "Cancellation confirmed without account deletion",
+              "passed": true
+            }
+          ],
+          "order": null,
+          "subscription": {
+            "renewalEnabled": false,
+            "accessActive": true,
+            "paidThrough": "30 November 2026",
+            "retentionOfferAccepted": false
+          },
+          "attempts": 1,
+          "recoveries": 0
+        },
+        "events": [
+          {
+            "sequence": 1,
+            "elapsedMs": 0.001953125,
+            "type": "started",
+            "message": "Agent attempt started. Same mission, fresh starting state."
+          },
+          {
+            "sequence": 2,
+            "elapsedMs": 6657.63427734375,
+            "type": "renewal_opened",
+            "message": "Opened renewal settings. Renewal is still on."
+          },
+          {
+            "sequence": 3,
+            "elapsedMs": 12107.031982421875,
+            "type": "retention_declined",
+            "message": "Passed the retention offer. Renewal is still on until confirmation."
+          },
+          {
+            "sequence": 4,
+            "elapsedMs": 16723.771240234375,
+            "type": "renewal_disabled",
+            "message": "Automatic renewal turned off. Paid access remains active."
+          },
+          {
+            "sequence": 5,
+            "elapsedMs": 16723.77978515625,
+            "type": "graded",
+            "message": "All mission requirements verified."
+          }
+        ],
+        "inputTokens": 37771,
+        "outputTokens": 133,
+        "video": "/examples/cancel-renewal/1/browser.webm",
+        "videoOffsetMs": 0,
+        "eventOffsetMs": -4.529296875
+      }
+    ]
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "name": "agent-playground",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "dev": "node scripts/dev.mjs",
+    "build": "tsc --noEmit && vite build",
+    "start": "NODE_ENV=production node server/index.ts",
+    "test": "node --test tests/*.test.ts",
+    "evaluate": "node scripts/evaluate.ts",
+    "format": "prettier --write src server tests scripts/dev.mjs scripts/evaluate.ts vite.config.ts scripts/browser-smoke.cjs scripts/test-agent-runner.ts scripts/test-replay.cjs scripts/test-rooms.cjs scripts/export-example.ts scripts/test-portfolio.cjs scripts/build-demo.mjs scripts/package-share.mjs scripts/release-files.mjs scripts/test-demo.cjs scripts/refresh-examples.ts",
+    "format:check": "prettier --check src server tests scripts/dev.mjs scripts/evaluate.ts vite.config.ts scripts/browser-smoke.cjs scripts/test-agent-runner.ts scripts/test-replay.cjs scripts/test-rooms.cjs scripts/export-example.ts scripts/test-portfolio.cjs scripts/build-demo.mjs scripts/package-share.mjs scripts/release-files.mjs scripts/test-demo.cjs scripts/refresh-examples.ts",
+    "test:browser": "node scripts/browser-smoke.cjs",
+    "test:runner": "node scripts/test-agent-runner.ts",
+    "test:replay": "node scripts/test-replay.cjs",
+    "test:rooms": "node scripts/test-rooms.cjs",
+    "test:portfolio": "node scripts/test-portfolio.cjs",
+    "build:demo": "tsc --noEmit && node scripts/build-demo.mjs",
+    "test:demo": "node scripts/test-demo.cjs",
+    "package:share": "npm run build:demo && node scripts/package-share.mjs",
+    "record:examples": "node scripts/refresh-examples.ts"
+  },
+  "dependencies": {
+    "framer-motion": "12.40.0",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@types/node": "24.12.3",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.1",
+    "playwright": "1.62.1",
+    "prettier": "3.6.2",
+    "typescript": "6.0.2",
+    "vite": "8.0.16"
+  }
+}

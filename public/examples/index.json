@@ -1,0 +1,20 @@
+[
+  {
+    "kind": "model",
+    "slug": "cancel-renewal",
+    "title": "Can renewal stop while paid access stays?",
+    "description": "Turn off renewal without accepting another offer or deleting the account."
+  },
+  {
+    "kind": "model",
+    "slug": "stock-recovery",
+    "title": "What happens when the first choice sells out?",
+    "description": "Try the requested headphones, then handle a stock obstacle within the same action budget."
+  },
+  {
+    "kind": "scripted",
+    "slug": "grader-failure",
+    "title": "Does completing checkout mean the task is done?",
+    "description": "Watch two scripted orders against the same $120 mission. The grader checks the final state."
+  }
+]

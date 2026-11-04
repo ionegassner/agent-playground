@@ -1,0 +1,11 @@
+{
+  "type": "object",
+  "properties": {
+    "action": { "type": "string", "enum": ["click", "select", "scroll", "finish"] },
+    "target": { "type": "integer" },
+    "value": { "type": "string" },
+    "summary": { "type": "string" }
+  },
+  "required": ["action", "target", "value", "summary"],
+  "additionalProperties": false
+}

@@ -1,0 +1,1557 @@
+{
+  "question": "Does inspecting every product change correctness or action count compared with narrowing candidates first?",
+  "scope": "Three paired trials of one fixed stock-recovery task. Descriptive observations only; not a model or general prompt ranking.",
+  "scenarioVersion": "stock-recovery@1",
+  "scenarioId": "stock-recovery",
+  "seed": 1,
+  "model": "codex-default",
+  "modelVersionPinned": false,
+  "limits": {
+    "actions": 24,
+    "timeMs": 180000,
+    "outputTokens": 8192
+  },
+  "configs": [
+    {
+      "name": "Inspect every product",
+      "instructions": "Open every product detail page before choosing. Compare fit, battery, noise cancellation and delivered total. Then follow the mission\u2019s requested purchase sequence and complete a qualifying order. Recover if the requested item is unavailable. Verify the final result.",
+      "model": "codex-default",
+      "memorySteps": 12
+    },
+    {
+      "name": "Narrow candidates first",
+      "instructions": "Narrow candidates using visible catalog facts. Inspect only plausible choices and verify every mission constraint and delivered total before ordering. Follow the requested purchase sequence. If stock fails, narrow the alternatives and verify one before retrying. Verify the final result.",
+      "model": "codex-default",
+      "memorySteps": 12
+    }
+  ],
+  "trials": [
+    {
+      "trial": 1,
+      "matchId": "ed33f561-1f58-420b-8a9a-fe22ebff317b",
+      "createdAt": "2026-10-15T22:36:32.885Z",
+      "contestants": [
+        {
+          "name": "Inspect every product",
+          "status": "completed",
+          "correct": true,
+          "actions": 20,
+          "result": {
+            "correct": true,
+            "checks": [
+              {
+                "label": "Over-ear headphones",
+                "passed": true
+              },
+              {
+                "label": "Active noise cancellation",
+                "passed": true
+              },
+              {
+                "label": "At least 30 hours of battery",
+                "passed": true
+              },
+              {
+                "label": "Total at or below $120",
+                "passed": true
+              },
+              {
+                "label": "Exactly one pair",
+                "passed": true
+              },
+              {
+                "label": "No optional extras",
+                "passed": true
+              },
+              {
+                "label": "Requested item attempted before choosing an alternative",
+                "passed": true
+              }
+            ],
+            "order": {
+              "id": "e8c8e177-4ba6-4e78-83ce-4bd3aa39030a",
+              "itemId": "orbit",
+              "quantity": 1,
+              "itemPrice": 99,
+              "shipping": 14,
+              "extras": false,
+              "total": 113
+            },
+            "elapsedMs": 96214.92846679688,
+            "attempts": 2,
+            "recoveries": 1
+          },
+          "error": null,
+          "events": [
+            {
+              "sequence": 1,
+              "elapsedMs": 0.002685546875,
+              "type": "started",
+              "message": "Agent attempt started. Same mission, fresh starting state."
+            },
+            {
+              "sequence": 2,
+              "elapsedMs": 7905.499755859375,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 3,
+              "elapsedMs": 12934.277099609375,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 4,
+              "elapsedMs": 16819.4150390625,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 5,
+              "elapsedMs": 21250.654052734375,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 6,
+              "elapsedMs": 24984.317626953125,
+              "type": "inspect",
+              "message": "Opened Halo Pro."
+            },
+            {
+              "sequence": 7,
+              "elapsedMs": 31049.367431640625,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 8,
+              "elapsedMs": 36532.80712890625,
+              "type": "inspect",
+              "message": "Opened Echo Lite."
+            },
+            {
+              "sequence": 9,
+              "elapsedMs": 40835.70751953125,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 10,
+              "elapsedMs": 44932.79296875,
+              "type": "inspect",
+              "message": "Opened Flux Buds."
+            },
+            {
+              "sequence": 11,
+              "elapsedMs": 49916.37890625,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 12,
+              "elapsedMs": 53365.8544921875,
+              "type": "inspect",
+              "message": "Opened Weekend."
+            },
+            {
+              "sequence": 13,
+              "elapsedMs": 58198.010986328125,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 14,
+              "elapsedMs": 62648.88671875,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 15,
+              "elapsedMs": 67181.50048828125,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 16,
+              "elapsedMs": 72564.94946289062,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 17,
+              "elapsedMs": 72564.9521484375,
+              "type": "availability",
+              "message": "Cloud Nine sold out at checkout. No order or charge was made."
+            },
+            {
+              "sequence": 18,
+              "elapsedMs": 77072.09204101562,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 19,
+              "elapsedMs": 82848.32788085938,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 20,
+              "elapsedMs": 86931.70434570312,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 21,
+              "elapsedMs": 91728.99096679688,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 22,
+              "elapsedMs": 96214.89965820312,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 23,
+              "elapsedMs": 96214.91137695312,
+              "type": "recovered",
+              "message": "Committed an available alternative after the stock rejection."
+            },
+            {
+              "sequence": 24,
+              "elapsedMs": 96214.92431640625,
+              "type": "order",
+              "message": "Order confirmed: 1 \u00d7 Orbit One, $113 including delivery."
+            },
+            {
+              "sequence": 25,
+              "elapsedMs": 96214.9248046875,
+              "type": "graded",
+              "message": "All mission requirements verified."
+            }
+          ],
+          "steps": [
+            {
+              "elapsedMs": 0,
+              "action": "start",
+              "summary": "Browser opened at the identical task starting line."
+            },
+            {
+              "elapsedMs": 7997,
+              "action": "click",
+              "label": "Inspect Cloud Nine",
+              "summary": "Open Cloud Nine first as explicitly required; its listing shows over-ear and $109, but details are needed to verify ANC, battery, delivery, fit, and availability."
+            },
+            {
+              "elapsedMs": 12986,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Cloud Nine details visibly confirm over-ear fit, active noise cancellation, 40-hour battery, and a $117 delivered total. Return to all headphones to open and compare every alternative detail page before checkout."
+            },
+            {
+              "elapsedMs": 16874,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "Open Orbit One next; the strategy requires inspecting every product detail page and comparing fit, battery, ANC, and delivered total before choosing."
+            },
+            {
+              "elapsedMs": 21300,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Orbit One details confirm over-ear fit, active noise cancellation, 32-hour battery, and $113 delivered total, making it eligible. Return to the catalog to inspect every remaining product detail page before choosing."
+            },
+            {
+              "elapsedMs": 25040,
+              "action": "click",
+              "label": "Inspect Halo Pro",
+              "summary": "Open Halo Pro next to continue the required inspection of every product detail page and compare fit, battery, ANC, delivered total, and availability."
+            },
+            {
+              "elapsedMs": 31101,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Halo Pro details show over-ear fit, active noise cancellation, and 50-hour battery, but its $127 delivered total exceeds the $120 limit. Return to inspect every remaining product before choosing."
+            },
+            {
+              "elapsedMs": 36588,
+              "action": "click",
+              "label": "Inspect Echo Lite",
+              "summary": "Open Echo Lite next to continue inspecting every product detail page and comparing fit, battery, active noise cancellation, delivered total, and availability before choosing."
+            },
+            {
+              "elapsedMs": 40884,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Echo Lite details show over-ear fit and active noise cancellation with an $88 delivered total, but its 24-hour battery fails the 30-hour minimum. Return to the catalog to inspect every remaining product before choosing."
+            },
+            {
+              "elapsedMs": 44989,
+              "action": "click",
+              "label": "Inspect Flux Buds",
+              "summary": "Open Flux Buds to continue the required inspection of every product detail page; its listing already shows an in-ear fit, but details must still be compared before choosing."
+            },
+            {
+              "elapsedMs": 49966,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Flux Buds details confirm active noise cancellation, 36-hour battery, and a $97 delivered total, but the in-ear fit is ineligible. Return to the catalog to inspect any remaining product detail pages before choosing."
+            },
+            {
+              "elapsedMs": 53421,
+              "action": "click",
+              "label": "Inspect Weekend",
+              "summary": "Open Weekend, the only remaining product detail page, to complete the required comparison before attempting Cloud Nine first."
+            },
+            {
+              "elapsedMs": 58250,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Weekend details show over-ear fit, 35-hour battery, and a $72 delivered total, but only passive isolation, so it is ineligible. All product pages have now been inspected; return to the catalog to attempt qualifying Cloud Nine first as required."
+            },
+            {
+              "elapsedMs": 62702,
+              "action": "click",
+              "label": "Inspect Cloud Nine",
+              "summary": "All six detail pages have been compared. Cloud Nine qualifies at $117 delivered with over-ear fit, ANC, and 40-hour battery, so open it again to begin the required first purchase attempt."
+            },
+            {
+              "elapsedMs": 67276,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Cloud Nine is the requested first choice and visibly qualifies: over-ear, active noise cancellation, 40-hour battery, and $117 including delivery. Proceed to checkout to test its stated limited availability."
+            },
+            {
+              "elapsedMs": 72647,
+              "action": "click",
+              "label": "Place order \u00b7 $117",
+              "summary": "Checkout visibly shows exactly 1 pair, no gift extra selected, and a $117 total including delivery, so place the qualifying Cloud Nine order."
+            },
+            {
+              "elapsedMs": 77117,
+              "action": "click",
+              "label": "Close checkout",
+              "summary": "Cloud Nine visibly sold out and the balance remains untouched. Close checkout to recover and purchase the eligible Orbit One alternative, previously verified as over-ear with ANC, 32-hour battery, and $113 delivered."
+            },
+            {
+              "elapsedMs": 82900,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Cloud Nine now visibly shows \u201cCurrently sold out,\u201d confirming the failed first attempt. Return to all headphones to select the previously inspected eligible Orbit One alternative."
+            },
+            {
+              "elapsedMs": 86984,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "Cloud Nine\u2019s checkout failure and sold-out status are confirmed. Open Orbit One, the previously inspected qualifying alternative at $113 delivered with over-ear fit, active noise cancellation, and 32-hour battery, to proceed with exactly one pair and no extras."
+            },
+            {
+              "elapsedMs": 91821,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Orbit One visibly meets every requirement\u2014over-ear fit, active noise cancellation, 32-hour battery, and $113 including delivery\u2014so proceed to checkout for exactly one pair with no optional extras."
+            },
+            {
+              "elapsedMs": 96272,
+              "action": "click",
+              "label": "Place order \u00b7 $113",
+              "summary": "Checkout confirms Orbit One quantity is exactly 1 pair, the optional gift extra is unchecked, and the delivered total is $113, within the $120 maximum. Place the qualifying alternative order."
+            }
+          ]
+        },
+        {
+          "name": "Narrow candidates first",
+          "status": "completed",
+          "correct": true,
+          "actions": 8,
+          "result": {
+            "correct": true,
+            "checks": [
+              {
+                "label": "Over-ear headphones",
+                "passed": true
+              },
+              {
+                "label": "Active noise cancellation",
+                "passed": true
+              },
+              {
+                "label": "At least 30 hours of battery",
+                "passed": true
+              },
+              {
+                "label": "Total at or below $120",
+                "passed": true
+              },
+              {
+                "label": "Exactly one pair",
+                "passed": true
+              },
+              {
+                "label": "No optional extras",
+                "passed": true
+              },
+              {
+                "label": "Requested item attempted before choosing an alternative",
+                "passed": true
+              }
+            ],
+            "order": {
+              "id": "823c7fe8-8df3-4903-867c-f7c1fca35100",
+              "itemId": "orbit",
+              "quantity": 1,
+              "itemPrice": 99,
+              "shipping": 14,
+              "extras": false,
+              "total": 113
+            },
+            "elapsedMs": 37350.735595703125,
+            "attempts": 2,
+            "recoveries": 1
+          },
+          "error": null,
+          "events": [
+            {
+              "sequence": 1,
+              "elapsedMs": 0.00146484375,
+              "type": "started",
+              "message": "Agent attempt started. Same mission, fresh starting state."
+            },
+            {
+              "sequence": 2,
+              "elapsedMs": 5924.2041015625,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 3,
+              "elapsedMs": 11202.402099609375,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 4,
+              "elapsedMs": 15569.47021484375,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 5,
+              "elapsedMs": 15569.47265625,
+              "type": "availability",
+              "message": "Cloud Nine sold out at checkout. No order or charge was made."
+            },
+            {
+              "sequence": 6,
+              "elapsedMs": 19720.798828125,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 7,
+              "elapsedMs": 24034.54931640625,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 8,
+              "elapsedMs": 29302.310546875,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 9,
+              "elapsedMs": 33434.5439453125,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 10,
+              "elapsedMs": 37350.589111328125,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 11,
+              "elapsedMs": 37350.606201171875,
+              "type": "recovered",
+              "message": "Committed an available alternative after the stock rejection."
+            },
+            {
+              "sequence": 12,
+              "elapsedMs": 37350.728759765625,
+              "type": "order",
+              "message": "Order confirmed: 1 \u00d7 Orbit One, $113 including delivery."
+            },
+            {
+              "sequence": 13,
+              "elapsedMs": 37350.729248046875,
+              "type": "graded",
+              "message": "All mission requirements verified."
+            }
+          ],
+          "steps": [
+            {
+              "elapsedMs": 0,
+              "action": "start",
+              "summary": "Browser opened at the identical task starting line."
+            },
+            {
+              "elapsedMs": 6004,
+              "action": "click",
+              "label": "Inspect Cloud Nine",
+              "summary": "Cloud Nine is the requested first choice and is visibly over-ear at $109, so inspect it first to verify ANC, battery, delivery, and availability."
+            },
+            {
+              "elapsedMs": 11306,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Cloud Nine visibly meets all product constraints: over-ear, active noise cancellation, 40-hour battery, and $117 delivered, so proceed to checkout to test its stated limited availability first."
+            },
+            {
+              "elapsedMs": 15650,
+              "action": "click",
+              "label": "Place order \u00b7 $117",
+              "summary": "Checkout visibly confirms Cloud Nine, quantity 1 pair, gift extra unchecked, and a $117 total including delivery, within the $120 maximum; place the requested first-choice order."
+            },
+            {
+              "elapsedMs": 19771,
+              "action": "click",
+              "label": "Close checkout",
+              "summary": "Cloud Nine visibly sold out after the required first attempt, with balance untouched; close checkout to narrow and verify an eligible alternative."
+            },
+            {
+              "elapsedMs": 24088,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Cloud Nine is now visibly marked sold out after the required checkout attempt; return to the catalog to identify an eligible alternative."
+            },
+            {
+              "elapsedMs": 29359,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "After Cloud Nine sold out, Orbit One is the strongest visible alternative: over-ear and $99, leaving $21 for delivery; inspect it to verify ANC, battery, stock, and delivered total."
+            },
+            {
+              "elapsedMs": 33519,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Orbit One visibly satisfies every product constraint\u2014over-ear, active noise cancellation, 32-hour battery\u2014and costs $113 delivered, so proceed to checkout to verify quantity, extras, availability, and final total."
+            },
+            {
+              "elapsedMs": 37408,
+              "action": "click",
+              "label": "Place order \u00b7 $113",
+              "summary": "Checkout visibly confirms Orbit One at exactly 1 pair, gift extra unchecked, and $113 total including delivery, satisfying the $120 cap; place the verified alternative order."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trial": 2,
+      "matchId": "fc0867f1-170d-4036-98fc-36834db0c5a7",
+      "createdAt": "2026-10-15T22:38:13.039Z",
+      "contestants": [
+        {
+          "name": "Inspect every product",
+          "status": "completed",
+          "correct": true,
+          "actions": 18,
+          "result": {
+            "correct": true,
+            "checks": [
+              {
+                "label": "Over-ear headphones",
+                "passed": true
+              },
+              {
+                "label": "Active noise cancellation",
+                "passed": true
+              },
+              {
+                "label": "At least 30 hours of battery",
+                "passed": true
+              },
+              {
+                "label": "Total at or below $120",
+                "passed": true
+              },
+              {
+                "label": "Exactly one pair",
+                "passed": true
+              },
+              {
+                "label": "No optional extras",
+                "passed": true
+              },
+              {
+                "label": "Requested item attempted before choosing an alternative",
+                "passed": true
+              }
+            ],
+            "order": {
+              "id": "20b5bdf5-15c2-4422-bb9e-178db4278f9d",
+              "itemId": "orbit",
+              "quantity": 1,
+              "itemPrice": 99,
+              "shipping": 14,
+              "extras": false,
+              "total": 113
+            },
+            "elapsedMs": 84775.9189453125,
+            "attempts": 2,
+            "recoveries": 1
+          },
+          "error": null,
+          "events": [
+            {
+              "sequence": 1,
+              "elapsedMs": 0.003173828125,
+              "type": "started",
+              "message": "Agent attempt started. Same mission, fresh starting state."
+            },
+            {
+              "sequence": 2,
+              "elapsedMs": 4732.906005859375,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 3,
+              "elapsedMs": 8844.630615234375,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 4,
+              "elapsedMs": 13329.861083984375,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 5,
+              "elapsedMs": 13329.864501953125,
+              "type": "availability",
+              "message": "Cloud Nine sold out at checkout. No order or charge was made."
+            },
+            {
+              "sequence": 6,
+              "elapsedMs": 17128.7216796875,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 7,
+              "elapsedMs": 21460.234130859375,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 8,
+              "elapsedMs": 28294.981689453125,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 9,
+              "elapsedMs": 33011.5166015625,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 10,
+              "elapsedMs": 37177.554931640625,
+              "type": "inspect",
+              "message": "Opened Halo Pro."
+            },
+            {
+              "sequence": 11,
+              "elapsedMs": 43060.02099609375,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 12,
+              "elapsedMs": 47727.644287109375,
+              "type": "inspect",
+              "message": "Opened Echo Lite."
+            },
+            {
+              "sequence": 13,
+              "elapsedMs": 51627.387939453125,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 14,
+              "elapsedMs": 56146.580810546875,
+              "type": "inspect",
+              "message": "Opened Flux Buds."
+            },
+            {
+              "sequence": 15,
+              "elapsedMs": 63726.487060546875,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 16,
+              "elapsedMs": 67710.3984375,
+              "type": "inspect",
+              "message": "Opened Weekend."
+            },
+            {
+              "sequence": 17,
+              "elapsedMs": 72575.75610351562,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 18,
+              "elapsedMs": 76960.45166015625,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 19,
+              "elapsedMs": 81094.087890625,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 20,
+              "elapsedMs": 84775.88452148438,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 21,
+              "elapsedMs": 84775.89624023438,
+              "type": "recovered",
+              "message": "Committed an available alternative after the stock rejection."
+            },
+            {
+              "sequence": 22,
+              "elapsedMs": 84775.91284179688,
+              "type": "order",
+              "message": "Order confirmed: 1 \u00d7 Orbit One, $113 including delivery."
+            },
+            {
+              "sequence": 23,
+              "elapsedMs": 84775.9130859375,
+              "type": "graded",
+              "message": "All mission requirements verified."
+            }
+          ],
+          "steps": [
+            {
+              "elapsedMs": 0,
+              "action": "start",
+              "summary": "Browser opened at the identical task starting line."
+            },
+            {
+              "elapsedMs": 4830,
+              "action": "click",
+              "label": "Inspect Cloud Nine",
+              "summary": "Open Cloud Nine first, as requested, and inspect its visible qualification details before checkout."
+            },
+            {
+              "elapsedMs": 8946,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Cloud Nine visibly qualifies on fit (over-ear), active noise cancellation, 40-hour battery, and $117 delivered total; proceed to checkout to test its stated limited availability."
+            },
+            {
+              "elapsedMs": 13409,
+              "action": "click",
+              "label": "Place order \u00b7 $117",
+              "summary": "Checkout visibly confirms Cloud Nine, quantity 1 pair, gift extra unchecked, and a $117 delivered total within the $120 cap; place the qualifying order."
+            },
+            {
+              "elapsedMs": 17181,
+              "action": "click",
+              "label": "Close checkout",
+              "summary": "Cloud Nine is visibly sold out and the balance is untouched, so close checkout and return to compare eligible alternatives."
+            },
+            {
+              "elapsedMs": 21514,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Cloud Nine is visibly sold out, so return to the full headphone list and inspect every alternative before selecting an eligible recovery."
+            },
+            {
+              "elapsedMs": 28352,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "Cloud Nine was unavailable at checkout; inspect Orbit One next so every alternative\u2019s fit, ANC, battery, and delivered total is compared before recovery."
+            },
+            {
+              "elapsedMs": 33062,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Orbit One visibly qualifies on over-ear fit, active noise cancellation, 32-hour battery, and $113 delivered total; return to the list to inspect every remaining product before choosing."
+            },
+            {
+              "elapsedMs": 37234,
+              "action": "click",
+              "label": "Inspect Halo Pro",
+              "summary": "Inspect Halo Pro next; Orbit One qualifies, but the strategy requires opening every product detail page and comparing fit, battery, ANC, and delivered total before recovery."
+            },
+            {
+              "elapsedMs": 43112,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Halo Pro has the required over-ear fit, active noise cancellation, and 50-hour battery, but its $127 delivered total exceeds the $120 cap; return to inspect the remaining products."
+            },
+            {
+              "elapsedMs": 47783,
+              "action": "click",
+              "label": "Inspect Echo Lite",
+              "summary": "Inspect Echo Lite next; Cloud Nine was unavailable, Orbit One qualifies, and Halo Pro exceeds the delivered-price cap, but every product detail page must be reviewed before selecting the recovery item."
+            },
+            {
+              "elapsedMs": 51677,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Echo Lite is over-ear with active noise cancellation and an $88 delivered total, but its visible 24-hour battery misses the 30-hour minimum; return to inspect every remaining product before choosing Orbit One."
+            },
+            {
+              "elapsedMs": 56200,
+              "action": "click",
+              "label": "Inspect Flux Buds",
+              "summary": "Inspect Flux Buds next; its list card already shows an in-ear fit, which is likely ineligible, but every product detail page must be opened and compared before choosing the qualifying recovery."
+            },
+            {
+              "elapsedMs": 63777,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Flux Buds has active noise cancellation, 36-hour battery, and a $97 delivered total, but its visible in-ear fit is ineligible; return to the list after completing the required inspection of every product."
+            },
+            {
+              "elapsedMs": 67766,
+              "action": "click",
+              "label": "Inspect Weekend",
+              "summary": "Inspect Weekend, the final unopened product detail page, to complete the required comparison before selecting the qualifying Orbit One recovery."
+            },
+            {
+              "elapsedMs": 72629,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Weekend is over-ear with a 35-hour battery and $72 delivered total, but it has passive isolation only and therefore fails the active-noise-cancellation requirement; all product details are now inspected, so return to choose qualifying Orbit One."
+            },
+            {
+              "elapsedMs": 77011,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "All six product detail pages have been inspected. Orbit One is the eligible recovery: over-ear, active noise cancellation, 32-hour battery, and $113 delivered total, within the $120 cap."
+            },
+            {
+              "elapsedMs": 81178,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Proceed to checkout with Orbit One, the only inspected eligible alternative: over-ear, active noise cancellation, 32-hour battery, and $113 delivered total."
+            },
+            {
+              "elapsedMs": 84834,
+              "action": "click",
+              "label": "Place order \u00b7 $113",
+              "summary": "Checkout visibly confirms exactly 1 pair, no gift extra selected, and a $113 delivered total; place the qualifying Orbit One order."
+            }
+          ]
+        },
+        {
+          "name": "Narrow candidates first",
+          "status": "completed",
+          "correct": true,
+          "actions": 8,
+          "result": {
+            "correct": true,
+            "checks": [
+              {
+                "label": "Over-ear headphones",
+                "passed": true
+              },
+              {
+                "label": "Active noise cancellation",
+                "passed": true
+              },
+              {
+                "label": "At least 30 hours of battery",
+                "passed": true
+              },
+              {
+                "label": "Total at or below $120",
+                "passed": true
+              },
+              {
+                "label": "Exactly one pair",
+                "passed": true
+              },
+              {
+                "label": "No optional extras",
+                "passed": true
+              },
+              {
+                "label": "Requested item attempted before choosing an alternative",
+                "passed": true
+              }
+            ],
+            "order": {
+              "id": "2e7e2bef-a073-40d9-b84d-079c6ebd038b",
+              "itemId": "orbit",
+              "quantity": 1,
+              "itemPrice": 99,
+              "shipping": 14,
+              "extras": false,
+              "total": 113
+            },
+            "elapsedMs": 43896.7392578125,
+            "attempts": 2,
+            "recoveries": 1
+          },
+          "error": null,
+          "events": [
+            {
+              "sequence": 1,
+              "elapsedMs": 0.002685546875,
+              "type": "started",
+              "message": "Agent attempt started. Same mission, fresh starting state."
+            },
+            {
+              "sequence": 2,
+              "elapsedMs": 4668.798583984375,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 3,
+              "elapsedMs": 10064.07177734375,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 4,
+              "elapsedMs": 14682.175048828125,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 5,
+              "elapsedMs": 14682.17822265625,
+              "type": "availability",
+              "message": "Cloud Nine sold out at checkout. No order or charge was made."
+            },
+            {
+              "sequence": 6,
+              "elapsedMs": 19114.89111328125,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 7,
+              "elapsedMs": 23912.970703125,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 8,
+              "elapsedMs": 28929.9140625,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 9,
+              "elapsedMs": 35679.579833984375,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 10,
+              "elapsedMs": 43896.689453125,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 11,
+              "elapsedMs": 43896.706298828125,
+              "type": "recovered",
+              "message": "Committed an available alternative after the stock rejection."
+            },
+            {
+              "sequence": 12,
+              "elapsedMs": 43896.732666015625,
+              "type": "order",
+              "message": "Order confirmed: 1 \u00d7 Orbit One, $113 including delivery."
+            },
+            {
+              "sequence": 13,
+              "elapsedMs": 43896.733154296875,
+              "type": "graded",
+              "message": "All mission requirements verified."
+            }
+          ],
+          "steps": [
+            {
+              "elapsedMs": 0,
+              "action": "start",
+              "summary": "Browser opened at the identical task starting line."
+            },
+            {
+              "elapsedMs": 4768,
+              "action": "click",
+              "label": "Inspect Cloud Nine",
+              "summary": "Inspect Cloud Nine first, as required; the catalog shows it is over-ear and priced at $109, making it the requested initial candidate."
+            },
+            {
+              "elapsedMs": 10159,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Cloud Nine visibly meets all product constraints\u2014over-ear, active noise cancellation, 40-hour battery\u2014and its delivered total is $117 ($109 + $8), within the $120 maximum, so proceed to checkout first as required."
+            },
+            {
+              "elapsedMs": 14761,
+              "action": "click",
+              "label": "Place order \u00b7 $117",
+              "summary": "Checkout visibly confirms exactly 1 pair, no gift extra selected, and a $117 delivered total ($109 + $8), satisfying the $120 maximum; place the Cloud Nine order."
+            },
+            {
+              "elapsedMs": 19167,
+              "action": "click",
+              "label": "Close checkout",
+              "summary": "Cloud Nine is visibly sold out and the balance is untouched, so close checkout to return to the catalog and choose an eligible alternative."
+            },
+            {
+              "elapsedMs": 23966,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Cloud Nine is now visibly marked \u201cCurrently sold out\u201d; return to All headphones to narrow eligible alternatives by fit, ANC, battery, and delivered price."
+            },
+            {
+              "elapsedMs": 28987,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "Inspect Orbit One as the strongest visible alternative: it is over-ear and costs $99, leaving $21 for delivery while still meeting the $120 cap if its ANC and battery details qualify."
+            },
+            {
+              "elapsedMs": 35767,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Orbit One visibly satisfies the alternative requirements\u2014over-ear, active noise cancellation, 32-hour battery\u2014and costs $113 delivered ($99 + $14), within the $120 maximum; proceed to checkout to verify quantity and extras."
+            },
+            {
+              "elapsedMs": 43955,
+              "action": "click",
+              "label": "Place order \u00b7 $113",
+              "summary": "Checkout confirms Orbit One at exactly 1 pair, gift extra off, and $113 delivered ($99 + $14), so place the eligible alternative order."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "trial": 3,
+      "matchId": "17b9e647-63a0-4c7f-8497-506edd8ff0c4",
+      "createdAt": "2026-10-15T22:39:41.171Z",
+      "contestants": [
+        {
+          "name": "Inspect every product",
+          "status": "completed",
+          "correct": true,
+          "actions": 18,
+          "result": {
+            "correct": true,
+            "checks": [
+              {
+                "label": "Over-ear headphones",
+                "passed": true
+              },
+              {
+                "label": "Active noise cancellation",
+                "passed": true
+              },
+              {
+                "label": "At least 30 hours of battery",
+                "passed": true
+              },
+              {
+                "label": "Total at or below $120",
+                "passed": true
+              },
+              {
+                "label": "Exactly one pair",
+                "passed": true
+              },
+              {
+                "label": "No optional extras",
+                "passed": true
+              },
+              {
+                "label": "Requested item attempted before choosing an alternative",
+                "passed": true
+              }
+            ],
+            "order": {
+              "id": "d9a021f0-eed0-4de1-b767-49ffa8f568fa",
+              "itemId": "orbit",
+              "quantity": 1,
+              "itemPrice": 99,
+              "shipping": 14,
+              "extras": false,
+              "total": 113
+            },
+            "elapsedMs": 85510.76293945312,
+            "attempts": 2,
+            "recoveries": 1
+          },
+          "error": null,
+          "events": [
+            {
+              "sequence": 1,
+              "elapsedMs": 0.0048828125,
+              "type": "started",
+              "message": "Agent attempt started. Same mission, fresh starting state."
+            },
+            {
+              "sequence": 2,
+              "elapsedMs": 4500.896240234375,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 3,
+              "elapsedMs": 8879.51416015625,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 4,
+              "elapsedMs": 13165.801513671875,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 5,
+              "elapsedMs": 13165.806884765625,
+              "type": "availability",
+              "message": "Cloud Nine sold out at checkout. No order or charge was made."
+            },
+            {
+              "sequence": 6,
+              "elapsedMs": 17848.7265625,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 7,
+              "elapsedMs": 21897.42822265625,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 8,
+              "elapsedMs": 27680.16357421875,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 9,
+              "elapsedMs": 33061.5419921875,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 10,
+              "elapsedMs": 37547.371337890625,
+              "type": "inspect",
+              "message": "Opened Halo Pro."
+            },
+            {
+              "sequence": 11,
+              "elapsedMs": 41661.22998046875,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 12,
+              "elapsedMs": 45363.588623046875,
+              "type": "inspect",
+              "message": "Opened Echo Lite."
+            },
+            {
+              "sequence": 13,
+              "elapsedMs": 50378.009521484375,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 14,
+              "elapsedMs": 54813.693359375,
+              "type": "inspect",
+              "message": "Opened Flux Buds."
+            },
+            {
+              "sequence": 15,
+              "elapsedMs": 62144.8603515625,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 16,
+              "elapsedMs": 66030.83544921875,
+              "type": "inspect",
+              "message": "Opened Weekend."
+            },
+            {
+              "sequence": 17,
+              "elapsedMs": 70978.23193359375,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 18,
+              "elapsedMs": 77495.28466796875,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 19,
+              "elapsedMs": 81861.9931640625,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 20,
+              "elapsedMs": 85510.72680664062,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 21,
+              "elapsedMs": 85510.73608398438,
+              "type": "recovered",
+              "message": "Committed an available alternative after the stock rejection."
+            },
+            {
+              "sequence": 22,
+              "elapsedMs": 85510.75903320312,
+              "type": "order",
+              "message": "Order confirmed: 1 \u00d7 Orbit One, $113 including delivery."
+            },
+            {
+              "sequence": 23,
+              "elapsedMs": 85510.75927734375,
+              "type": "graded",
+              "message": "All mission requirements verified."
+            }
+          ],
+          "steps": [
+            {
+              "elapsedMs": 0,
+              "action": "start",
+              "summary": "Browser opened at the identical task starting line."
+            },
+            {
+              "elapsedMs": 4623,
+              "action": "click",
+              "label": "Inspect Cloud Nine",
+              "summary": "Open Cloud Nine first as required; its visible card shows over-ear and $109, but detail inspection is needed for ANC, battery, delivery, and availability."
+            },
+            {
+              "elapsedMs": 8980,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Cloud Nine\u2019s detail page confirms over-ear fit, active noise cancellation, 40-hour battery, and a $117 delivered total, so proceed to checkout to test its stated limited availability first."
+            },
+            {
+              "elapsedMs": 13242,
+              "action": "click",
+              "label": "Place order \u00b7 $117",
+              "summary": "Checkout visibly shows exactly 1 pair, no gift extra selected, and a $117 total within the $120 delivered limit; place the qualifying Cloud Nine order."
+            },
+            {
+              "elapsedMs": 17897,
+              "action": "click",
+              "label": "Close checkout",
+              "summary": "Cloud Nine is visibly sold out and the balance is untouched, so close checkout and inspect every alternative product detail page before selecting an eligible fallback."
+            },
+            {
+              "elapsedMs": 21944,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Cloud Nine is visibly marked currently sold out after the required checkout attempt, so return to All headphones to inspect each alternative\u2019s details before choosing a fallback."
+            },
+            {
+              "elapsedMs": 27735,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "Cloud Nine\u2019s unavailability is confirmed; open Orbit One\u2019s detail page next to compare fit, ANC, battery, delivery, and availability across every alternative."
+            },
+            {
+              "elapsedMs": 33111,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Orbit One\u2019s detail page confirms over-ear fit, active noise cancellation, and 32-hour battery, but its $113 delivered total is only a candidate; return to the catalog to inspect every remaining product detail page before choosing."
+            },
+            {
+              "elapsedMs": 37599,
+              "action": "click",
+              "label": "Inspect Halo Pro",
+              "summary": "Open Halo Pro\u2019s detail page next, continuing the required inspection of every product before selecting the fallback."
+            },
+            {
+              "elapsedMs": 41711,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Halo Pro confirms over-ear fit, active noise cancellation, and 50-hour battery, but its $127 delivered total exceeds the $120 cap; return to inspect every remaining product detail before choosing."
+            },
+            {
+              "elapsedMs": 45416,
+              "action": "click",
+              "label": "Inspect Echo Lite",
+              "summary": "Open Echo Lite\u2019s detail page next; every product must be inspected before selecting the eligible fallback."
+            },
+            {
+              "elapsedMs": 50428,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Echo Lite\u2019s detail page confirms over-ear fit and active noise cancellation, but its 24-hour battery fails the 30-hour minimum; return to the catalog to inspect every remaining product before choosing the fallback."
+            },
+            {
+              "elapsedMs": 54866,
+              "action": "click",
+              "label": "Inspect Flux Buds",
+              "summary": "Open Flux Buds\u2019 detail page next; although the card visibly says in-ear and is therefore ineligible, the strategy requires inspecting every product detail page before choosing."
+            },
+            {
+              "elapsedMs": 62193,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Flux Buds\u2019 detail page confirms active noise cancellation and 36-hour battery, but its in-ear fit is ineligible; return to the catalog and continue opening every remaining product detail page."
+            },
+            {
+              "elapsedMs": 66080,
+              "action": "click",
+              "label": "Inspect Weekend",
+              "summary": "Open Weekend\u2019s detail page, the final uninspected product, to complete the required all-product comparison before choosing the eligible fallback."
+            },
+            {
+              "elapsedMs": 71028,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Weekend\u2019s detail page confirms over-ear fit and 35-hour battery, but only passive isolation, so it fails the active-noise-cancellation requirement; all product details have now been inspected, and Orbit One is the eligible fallback at $113 delivered."
+            },
+            {
+              "elapsedMs": 77544,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "All product details have been inspected: Cloud Nine is unavailable, while Orbit One is the qualifying fallback with over-ear fit, active noise cancellation, 32-hour battery, and a $113 delivered total within the $120 cap; open Orbit One to begin the required purchase sequence."
+            },
+            {
+              "elapsedMs": 81943,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Orbit One visibly meets every requirement\u2014over-ear, active noise cancellation, 32-hour battery, and $113 including delivery\u2014so proceed to checkout for exactly one pair with no extras."
+            },
+            {
+              "elapsedMs": 85566,
+              "action": "click",
+              "label": "Place order \u00b7 $113",
+              "summary": "Checkout visibly shows exactly 1 pair, the gift extra unchecked, and a $113 delivered total within budget; place the qualifying Orbit One order."
+            }
+          ]
+        },
+        {
+          "name": "Narrow candidates first",
+          "status": "completed",
+          "correct": true,
+          "actions": 8,
+          "result": {
+            "correct": true,
+            "checks": [
+              {
+                "label": "Over-ear headphones",
+                "passed": true
+              },
+              {
+                "label": "Active noise cancellation",
+                "passed": true
+              },
+              {
+                "label": "At least 30 hours of battery",
+                "passed": true
+              },
+              {
+                "label": "Total at or below $120",
+                "passed": true
+              },
+              {
+                "label": "Exactly one pair",
+                "passed": true
+              },
+              {
+                "label": "No optional extras",
+                "passed": true
+              },
+              {
+                "label": "Requested item attempted before choosing an alternative",
+                "passed": true
+              }
+            ],
+            "order": {
+              "id": "ea5cca9f-5add-449e-958f-d5c14c09157b",
+              "itemId": "orbit",
+              "quantity": 1,
+              "itemPrice": 99,
+              "shipping": 14,
+              "extras": false,
+              "total": 113
+            },
+            "elapsedMs": 36281.64208984375,
+            "attempts": 2,
+            "recoveries": 1
+          },
+          "error": null,
+          "events": [
+            {
+              "sequence": 1,
+              "elapsedMs": 0.001953125,
+              "type": "started",
+              "message": "Agent attempt started. Same mission, fresh starting state."
+            },
+            {
+              "sequence": 2,
+              "elapsedMs": 4652.29638671875,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 3,
+              "elapsedMs": 9797.287353515625,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 4,
+              "elapsedMs": 14151.5966796875,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 5,
+              "elapsedMs": 14151.598876953125,
+              "type": "availability",
+              "message": "Cloud Nine sold out at checkout. No order or charge was made."
+            },
+            {
+              "sequence": 6,
+              "elapsedMs": 18933.945068359375,
+              "type": "inspect",
+              "message": "Opened Cloud Nine."
+            },
+            {
+              "sequence": 7,
+              "elapsedMs": 23030.563232421875,
+              "type": "browse",
+              "message": "Returned to the store."
+            },
+            {
+              "sequence": 8,
+              "elapsedMs": 27814.076171875,
+              "type": "inspect",
+              "message": "Opened Orbit One."
+            },
+            {
+              "sequence": 9,
+              "elapsedMs": 32198.148193359375,
+              "type": "checkout_opened",
+              "message": "Opened checkout."
+            },
+            {
+              "sequence": 10,
+              "elapsedMs": 36281.60546875,
+              "type": "checkout",
+              "message": "Checkout submitted."
+            },
+            {
+              "sequence": 11,
+              "elapsedMs": 36281.61474609375,
+              "type": "recovered",
+              "message": "Committed an available alternative after the stock rejection."
+            },
+            {
+              "sequence": 12,
+              "elapsedMs": 36281.639404296875,
+              "type": "order",
+              "message": "Order confirmed: 1 \u00d7 Orbit One, $113 including delivery."
+            },
+            {
+              "sequence": 13,
+              "elapsedMs": 36281.6396484375,
+              "type": "graded",
+              "message": "All mission requirements verified."
+            }
+          ],
+          "steps": [
+            {
+              "elapsedMs": 0,
+              "action": "start",
+              "summary": "Browser opened at the identical task starting line."
+            },
+            {
+              "elapsedMs": 4732,
+              "action": "click",
+              "label": "Inspect Cloud Nine",
+              "summary": "Inspect Cloud Nine first as explicitly required; its visible catalog listing is over-ear and priced at $109, making it the requested initial candidate."
+            },
+            {
+              "elapsedMs": 9891,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Cloud Nine visibly meets the technical constraints (over-ear, active noise cancellation, 40-hour battery) and totals $117 with delivery, so proceed to checkout to test its stated limited availability first."
+            },
+            {
+              "elapsedMs": 14225,
+              "action": "click",
+              "label": "Place order \u00b7 $117",
+              "summary": "Checkout visibly confirms exactly 1 pair, no gift extra selected, and a $117 delivered total\u2014within the $120 maximum\u2014so place the Cloud Nine order."
+            },
+            {
+              "elapsedMs": 18981,
+              "action": "click",
+              "label": "Close checkout",
+              "summary": "Cloud Nine is visibly sold out and the balance is untouched, so close checkout to return to the catalog and narrow eligible alternatives."
+            },
+            {
+              "elapsedMs": 23081,
+              "action": "click",
+              "label": "All headphones",
+              "summary": "Cloud Nine is now visibly marked sold out after the required first attempt, so return to All headphones to identify an eligible in-stock alternative."
+            },
+            {
+              "elapsedMs": 27869,
+              "action": "click",
+              "label": "Inspect Orbit One",
+              "summary": "Inspect Orbit One first: it is visibly over-ear and $99, leaving $21 for delivery, so it is the strongest plausible alternative to verify for ANC, battery, stock, and delivered total."
+            },
+            {
+              "elapsedMs": 32282,
+              "action": "click",
+              "label": "Go to checkout",
+              "summary": "Orbit One visibly satisfies all technical constraints\u2014over-ear, active noise cancellation, and 32-hour battery\u2014and its $99 price plus $14 delivery totals $113, so proceed to checkout to verify stock, quantity, extras, and final total."
+            },
+            {
+              "elapsedMs": 36337,
+              "action": "click",
+              "label": "Place order \u00b7 $113",
+              "summary": "Checkout visibly confirms Orbit One at exactly 1 pair, the optional gift extra is unchecked, and the delivered total is $113, so place the eligible alternative order."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
